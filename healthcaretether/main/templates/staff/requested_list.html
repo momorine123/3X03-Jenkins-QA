@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><strong>{{request.user.hospital}} Requested List</strong></h1>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+    </div>
+
+
+
+    <!-- Requested List -->
+    <div class="w3-container" style="margin-top:75px">
+      <!-- Table for Requested List -->  
+
+      <table id="requestedListTable" class="ui celled table" style="width:100%">
+        <thead>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Status</th>
+        </thead>
+        <tbody>
+          {% for item in reqs %}
+          <tr>
+            <td>{{ item.itemName}}</td>
+            <td>{{ item.quantity}}</td>
+  
+            <td>
+              {{item.status}}
+            </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+  
+  
+      </table>
+
+    </div>
+  
+  <!-- End page content -->
+  </div>
+
+{% endblock content %}

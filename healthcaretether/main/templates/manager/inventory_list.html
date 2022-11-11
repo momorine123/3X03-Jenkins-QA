@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><strong>{{request.user.hospital}} Inventory List</strong></h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'inventory-management' %}">Inventory Management</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Inventory List</li>
+      </ol>
+    </nav>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+    
+    <!-- OWN Hospital Inventory List Manager to manage -->
+    <div class="w3-container" style="margin-top:75px">
+
+      <!-- Table to manage asset -->
+      <table id="manageInvList" class="ui celled table" style="width:100%">
+        <thead>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th colspan="2">Action</th>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <td>{{ item.itemName}}</td>
+            <td>{{ item.quantity}}</td>
+
+            <td>
+              <a href="{% url 'manage-inventory-list' item.slugName %}">Edit</a>
+            </td>
+            <td><a href="{% url 'manage-delete-assets' item.slugName %}">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+  
+  
+      </table>
+    </div>
+  
+  <!-- End page content -->
+  </div>
+
+{% endblock content %}

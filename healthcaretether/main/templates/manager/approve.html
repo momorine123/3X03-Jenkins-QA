@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><strong>Approve Request?</strong></h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'request-from' %}">OTHER Hospital</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Approve Request?</li>
+        </ol>
+      </nav>
+
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+    </div>
+
+
+    <!-- Approve? -->
+    <div class="w3-container" id="approve" style="margin-top:75px">
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{invs.itemName}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{invs.hospital}}</h6>
+            <h7 class="card-text">Stock: {{invs.quantity}}</h7>
+
+          </div>
+        </div>
+
+
+      <form class="row">
+        {% csrf_token %}
+        <div class="w3-container" id="requestHospInfo" style="margin-top:15px">
+          <div class="card" style="width: 21rem;">
+            <div class="card-body">
+              <h5 class="card-title">Approve Request?</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Request Made by {{reqs.invHosp}}</h6>
+              <h7 class="card-text">Product Name: {{reqs.invName}}</h7>
+              <br>
+              <h7 class="card-text">Stock: {{reqs.invQty}} {{reqs.invName}}</h7>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit and cancel button -->
+        <div class="w3-container">
+          <br/>
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-secondary" style="width:100%;" onclick="history.back()">Cancel</button>
+            </div>
+            <div class="col">
+              <a type="button" class="btn btn-success" style="width:100% ;" href="{% url 'request-from-manager' reqs.slugName %}" >
+                Approve
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- End page content -->
+  </div>
+
+{% endblock content %}

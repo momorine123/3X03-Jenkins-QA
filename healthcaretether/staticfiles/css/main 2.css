@@ -1,0 +1,35 @@
+body,h1,h2,h3,h4,h5 
+{
+    font-family: "Poppins", sans-serif;
+}
+body 
+{
+    font-size:16px;
+}
+.w3-half img
+{
+    margin-bottom:-6px;
+    margin-top:16px;
+    opacity:0.8;
+    cursor:pointer
+}
+
+.w3-half img:hover
+{
+    opacity:1
+}
+
+#userManagementTable dataTables_wrapper dataTables_length select
+{
+    min-height: 0;
+}
+
+.logout
+{
+    word-wrap: break-word;
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    left: 15px;
+    width: 90%;
+}

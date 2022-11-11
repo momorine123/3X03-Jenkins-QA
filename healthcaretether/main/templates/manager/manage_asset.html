@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><strong>Manage Assets</strong></h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'inventory-management' %}">Inventory Management</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'inventory-list' %}">Hospital Inventory List</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Manage Assets</li>
+        </ol>
+      </nav>
+
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+    </div>
+
+    {% load crispy_forms_tags %}
+
+    <!-- Add New Asset -->
+    <div class="w3-container" id="addNewAsset" style="margin-top:75px">
+      <form class="row" method="POST" action="">
+        {% csrf_token %}
+
+        {{ form|crispy}}
+
+        <!-- Submit and cancel button -->
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <a href="{{request.META.HTTP_REFERER}}" type="button" class="btn btn-secondary" style="width:100%;" onclick="history.back()">Cancel</a>
+            </div>
+            <div class="col">
+              <input type="submit" class="btn btn-success" style="width:100% ;" value="Save" />
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+
+
+
+
+    <!-- End page content -->
+  </div>
+
+{% endblock content %}

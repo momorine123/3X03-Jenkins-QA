@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    {% load crispy_forms_tags %}
+    <div class="container-fluid" style="margin-top:75px">
+        <div class="row">
+            <form class="col-lg-6" method="POST" action="">
+                <h6 class="w3-jumbo"><strong>Unlock IP</strong></h6>
+                {% csrf_token %}
+                {{form|crispy}}
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <input type="submit" class="btn btn-success" style="width:100% ;" value="Unlock" />
+                    </div>
+                  </div>
+                </div>
+            </form>
+        </div>      
+    </div>
+
+    
+    <!-- End page content -->
+  </div>
+
+{% endblock content %}

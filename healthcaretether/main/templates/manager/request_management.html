@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><strong>Request Management</strong></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+
+  <!-- Buttons to link -->
+  <div class="container-fluid" style="margin-top:75px">
+    <div class="row">
+    <div class="col-lg-6">
+      <a href="{% url 'request-to' %}">
+        <input type="button" class="btnSubmit btn btn-primary" value="{{request.user.hospital}} Request" style="height:200% ; width:100%" />
+      </a>
+    </div>
+
+    <div class="col-lg-6">
+      <a href="{% url 'request-from' %}">
+        <input type="button" class="btnSubmit btn btn-primary" value="OTHER Hospital" style="height:200% ; width:100%" />
+      </a>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<!-- End page content -->
+</div>
+
+{% endblock content %}

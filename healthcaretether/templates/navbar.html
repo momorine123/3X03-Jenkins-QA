@@ -1,0 +1,42 @@
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-dark-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h4 class="w3-padding-16"><strong>Company<br>Name</strong></h4>
+    </div>
+    <hr>
+    <div class="w3-bar-block">
+      {% if user.role == "A" %}
+      <br>
+      <h3>IT</h3>
+      <hr><a href="{% url 'it-home' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-round-xxlarge">Item Management</a>
+      <a href="{% url 'account-management' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-round-xxlarge">User Management</a>
+      {% elif user.role == "S" %}
+      <br>
+      <br>
+      <h3>Staff</h3>
+      <hr>
+      <a href="{% url 'staff-home' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-round-xxlarge">Asset List</a>
+      <a href="{% url 'requested-list' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-round-xxlarge">Requested List</a>
+      {% elif user.role == "M" %}
+      <br>
+      <br>
+      <h3>Manager</h3>
+      <hr>
+      <a href="{% url 'manager-home' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-round-xxlarge">Request Management</a>
+      <a href="{% url 'inventory-management' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-round-xxlarge">Inventory Management</a>        
+      {% endif %}
+      <div class="mfa">
+        <a href="{% url 'mfa_home' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-round-xxlarge">MFA Settings</a>
+      </div>
+      <div class="logout">
+        <p>{{user.username}}</p>
+        <a href="{% url 'logout' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-round-xxlarge">Logout</a>
+      </div>
+    </div>
+
+</nav>
+<!-- Top menu on small screens -->
+  
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>

@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><strong>Delete</strong></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+
+
+  <!-- Asset List for Manager to manage -->
+  <div class="w3-container" style="margin-top:75px">
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <p>Are you sure you want to delete "{{obj}}"?</p>
+        <br>
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <a href="{{request.META.HTTP_REFERER}}" type="button" class="btn btn-secondary" style="width:100%;" onclick="history.back()">Cancel</a>
+            </div>
+            <div class="col">
+              <input type="submit" class="btn btn-success" style="width:100% ;" value="Confirm" />
+            </div>
+          </div>
+        </div>
+
+
+    </form>
+
+  </div>
+
+  <!-- End page content -->
+</div>
+
+{% endblock content %}

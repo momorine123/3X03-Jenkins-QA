@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><strong>{{request.user.hospital}} Asset List</strong></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+
+  <!-- Asset List -->
+  <div class="w3-container" style="margin-top:75px">
+    <!-- Table to manage asset -->
+    <table id="assetListTable" class="ui celled table" style="width:100%">
+      <thead>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Status</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.itemName}}</td>
+          <td>{{ item.quantity}}</td>
+        
+          <td>
+              {{item.status}}
+          </td>
+
+          <td>
+            {% if item.status == "Submitted" or item.status == "Pending" %}
+              Requested
+              {% else %}
+              <a href="{% url 'staff-request' item.slugName %}">Request</a>
+              {% endif %}
+
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+
+    </table>
+
+  </div>
+
+  <!-- End page content -->
+</div>
+
+{% endblock content %}
