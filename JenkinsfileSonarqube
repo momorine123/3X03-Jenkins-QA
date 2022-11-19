@@ -3,7 +3,7 @@ agent any
 stages {
 stage ('Checkout') {
 steps {
-git branch:'main', url: 'https://github.com/momorine123/3X03-Jenkins-QA.git'
+git branch:'main', url: 'https://github.com/momorine123/ICT3X03-Ventura.git'
 }
 }
 stage('Code Quality Check via SonarQube') {
@@ -15,7 +15,7 @@ sh "${scannerHome}/bin/sonar-scanner \
    -Dsonar.projectKey=OWASP \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://192.168.1.133:9000 \
-  -Dsonar.login=sqp_903300f6ff1cef93e25128c04fc903a0d5aa8360"
+  -Dsonar.login=sqp_f13a8de4e666fbfb25c07147bebe10a196106ebe"
 }
 }
 }
